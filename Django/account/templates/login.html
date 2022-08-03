@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+{%block content%}
+    <form method = "POST" action= "{% url 'login' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = "submit"> 로그인 </button>
+    </form>
+{%endblock%}
