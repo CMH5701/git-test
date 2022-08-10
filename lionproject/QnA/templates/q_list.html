@@ -1,0 +1,21 @@
+{% load static %}
+{% block content %}
+<html lang="ko">
+<head>
+        <meta charset="utf-8" />
+</head>
+<body>
+<h1>Q&A게시판 목록 페이지</h1>
+{% for qnaobj in qnaobj.all %}
+    <p>작성일 : {{qnaobj.q_date}}</p>
+    질문:{{qnaobj.question}}
+    <h3>제목 :<a href = "{% url 'q_detail' qnaobj.id %}">{{qnaobj.question}}</a></h3>
+    {% if qnaobj.q_photo %}
+    <img src = "{{ qnaobj.q_photo.url }}" width = "250" height = "250" alt = "이미지 입니다."> 
+  <br>
+    {% endif %}
+    {% endfor %}  
+  </section>
+</body>
+</html>  
+{% endblock %}  

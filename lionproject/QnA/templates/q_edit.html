@@ -1,0 +1,25 @@
+{% load static %}
+{% block content %}
+<html lang="ko">
+<head>
+        <meta charset="utf-8" />
+</head>
+<body>
+<section>
+    <h1>Q&A게시판 디테일한 페이지</h1>
+    <h2>Edit</h2>
+    <form method = "POST" enctype = "multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button class = "btn btn-dark btn-xl" type = "submit">작성</button>
+    </form>
+
+            </div>
+        </div>   
+    </div>
+</section>
+</body>
+</html>
+{% endblock %}

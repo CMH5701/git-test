@@ -1,0 +1,31 @@
+{% load static %}
+
+<html lang="ko">
+<head>
+        <meta charset="utf-8" />
+</head>
+
+{% block content %}
+<body>
+
+
+            {% if searched %}        
+                    <h1> 검색하신 {{ searched }} 에 관한 정보입니다. </h1>
+                    <br>
+                    {% for Qna in qnas %}      
+                            {{ Qna.question }} <br>
+                            {{ Qna.q_date }} 
+                    {% if Qna.q_photo %}
+                            <img src = "{{Qna.q_photo.url}}" width = "250" height = "250">
+                    {% endif %}
+                            <br>
+                            
+                    {% endfor %}
+            {% else %}       
+                    <h1> 찾고 있는 검색어를 검색창에 입력해주세요. </h1>
+            {% endif %}
+    {% endblock %}
+  
+    <!--검색-->
+</body>
+</html>

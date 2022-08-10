@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<h1>메인페이지</h1>
+<li><a href="{% url 'main' %}">main</a></li>
+<li><a href="{% url 'main' %}">Home</a></li>
+<li><a href="{% url 'q_list' %}">QnA글목록</a></li>
+<li><a href="{% url 'q_write' %}">고민작성</a></li>
+<li><a href="{% url 'hashtag' %}">해시태그 추가</a></li>
+{%if user.is_active %}
+<li>{{ user.username }}님 환영합니다.</a></li>
+<li><a href = "{% url 'logout' %}">로그아웃</a></li>
+
+{% else %}
+<li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href = "{% url 'login'%}">로그인</a></li>
+<li class="sidebar-nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href = "{% url 'signup'%}">회원가입</a></li>
+{% endif %}
+<form  method="POST" action="{% url 'search' %}">
+    {% csrf_token %}        
+    <input type="search" placeholder="Search" name="searched" aria-label="Search">
+    <button type="submit"> Search </button>
+</form>
+
+</body>
+ </html>
